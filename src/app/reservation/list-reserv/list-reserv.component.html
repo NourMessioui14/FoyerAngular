@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col-8">
+          <h1 class="text-center mb-4">Liste des Réservations</h1>
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Année Universitaire</th>
+                      <th scope="col">Est Valide</th>
+                      <th scope="col">Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let reservation of reservations">
+                      <td>{{ reservation.idReservation }}</td>
+                      <td>{{ reservation.anneeUniversitaire | date: 'yyyy/MM/dd' }}</td>
+                      <td>{{ reservation.estValide ? 'Oui' : 'Non' }}</td>
+                      <td>
+                          <button (click)="deleteReserv(reservation.idReservation)" class="btn btn-danger me-2">Supprimer</button>
+                          <a [routerLink]="['/update', reservation.idReservation]" class="btn btn-primary">Modifier</a>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

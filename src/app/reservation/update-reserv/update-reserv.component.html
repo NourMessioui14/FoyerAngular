@@ -1,0 +1,27 @@
+<div class="container">
+
+    <h2 class="text-center mb-4">modifier une réservation</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+ <form #updateForm="ngForm" (ngSubmit)="updateReservation()">
+    <div class="mb-3">
+
+        <label for="id">Id reservation</label>
+        <input type="text" class="form-control" id="idReservation" name="idReservation" [(ngModel)]="reservationData.idReservation" #idReservation="ngModel">
+        </div>
+        <label for="anneeUniversitaire">Année universitaire</label>
+        <input type="date" class="form-control" id="anneeUniversitaire" name="anneeUniversitaire" [(ngModel)]="reservationData.anneeUniversitaire" #anneeUniversitaire="ngModel">
+        <small class="text text-danger" *ngIf="anneeUniversitaire?.errors?.['required'] && anneeUniversitaire.touched">Date required</small>
+
+        <input type="checkbox" class="form-check-input" id="estValide" name="estValide" [(ngModel)]="reservationData.estValide" #estValide="ngModel">
+        <label class="form-check-label" for="estValide">Est valide</label>
+        
+        <button type="submit" class="btn btn-primary">Modifier réservation</button>
+    </form>
+</div>
+
+
+
+
+
+  

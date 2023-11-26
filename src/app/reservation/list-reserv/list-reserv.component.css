@@ -1,0 +1,41 @@
+/* list-reserv.html.component.css */
+
+/* Style pour la table */
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+  }
+  
+  /* Style pour les en-têtes de colonnes */
+  .table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  /* Style pour les lignes de données */
+  .table tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Style pour les cellules de données */
+  .table tbody td {
+    vertical-align: middle;
+  }
+  
+  /* Ajoute d'autres styles personnalisés si nécessaire */
+  

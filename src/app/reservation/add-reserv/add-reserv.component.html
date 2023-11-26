@@ -1,0 +1,22 @@
+<div class="container">
+    <h2 class="text-center mb-4">Ajouter une nouvelle réservation</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form #addForm="ngForm" (ngSubmit)="add(addForm)" class="card p-4">
+                <div class="mb-3">
+                    <label for="id" class="form-label">Id reservation</label>
+                    <input type="text" class="form-control" id="idReservation" name="idReservation" ngModel #idReservation="ngModel" required>
+                </div>
+                <div class="mb-3">
+                    <label for="anneeUniversitaire" class="form-label">Année universitaire</label>
+                    <input type="date" class="form-control" id="anneeUniversitaire" name="anneeUniversitaire" ngModel #anneeUniversitaire="ngModel" required>
+                </div>
+                <div class="form-check mb-3">
+                    <input type="checkbox" class="form-check-input" id="estValide" name="estValide" ngModel #estValide="ngModel">
+                    <label class="form-check-label" for="estValide">Est valide</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Ajouter réservation</button>
+            </form>
+        </div>
+    </div>
+</div>
