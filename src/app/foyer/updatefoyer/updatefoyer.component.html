@@ -1,0 +1,22 @@
+
+
+<h2>update Foyer</h2>
+<form class="form-group" [formGroup]="updateForm" *ngIf="updateForm">
+    <div class="form-group">
+      <label for="fn">nomFoyer</label>
+      <input type="text"  id="nomFoyer" class="form-control" name="name"  formControlName="fn">
+     <!-- <small class="text text-danger" *ngIf="fn?.errors?.['required'] && fn.touched">Name is required</small>
+      <small class="text text-danger" *ngIf="fn?.errors?.['minlength'] && fn.touched">first name should have at least 3 characters</small>
+      <small class="text text-danger" *ngIf="fn?.errors?.['pattern'] && fn.touched">first name should only contain letters</small>-->
+
+      <label for="fn">capacite Foyer </label>
+      <input type="text"  id="capaciteFoyer" class="form-control" name="capaciteFoyer"  formControlName="ln">
+    <!--  <small class="text text-danger" *ngIf="ln?.errors?.['required'] && ln.touched">Last name is required</small>
+      <small class="text text-danger" *ngIf="ln?.errors?.['minlength'] && ln.touched">Last name should have at least 3 characters</small>
+      <small class="text text-danger" *ngIf="ln?.errors?.['pattern'] && ln.touched">Last name should only contain letters</small>-->
+
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="update()">Update Foyer</button>
+    </form>
+  

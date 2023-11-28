@@ -1,0 +1,22 @@
+<!-- auth.component.html -->
+<h2>Login</h2>
+<form class="form-group" [formGroup]="authForm" *ngIf="authForm">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" class="form-control" formControlName="email">
+    <small class="text text-danger" *ngIf="authForm.get('email').hasError('required') && authForm.get('email').touched">
+      L'email est requis
+    </small>
+    <small class="text text-danger" *ngIf="authForm.get('email').hasError('email') && authForm.get('email').touched">
+      Veuillez entrer une adresse email valide
+    </small>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" class="form-control" formControlName="password">
+    <small class="text text-danger" *ngIf="authForm.get('password').hasError('required') && authForm.get('password').touched">
+      Le mot de passe est requis
+    </small>
+  </div>
+
+  <button type="button" class="btn btn-primary" (click)="login()">Connexion</button>
+</form>
