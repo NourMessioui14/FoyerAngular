@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="card" style="width: 50%; margin: 10px auto;">
+        <div class="card-header">
+            Ajouter un Bloc
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="nomBloc">Nom du Bloc</label>
+                <input [(ngModel)]="bloc.nomBloc" id="nomBloc" class="form-control" type="text" name="">
+            </div>
+
+            <div class="form-group">
+                <label for="capacityBloc">capacité du Bloc</label>
+                <input [(ngModel)]="bloc.capacityBloc" id="capacityBloc" class="form-control" type="number" name="">
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary" (click)="saveBloc()">Ajouter</button>
+            </div>
+
+
+        </div>
+
+        <div class="card-footer" *ngIf="showAlert">
+            <div class="alert alert-success" role="alert">
+                <button class="close" (click)="closeAlert()">&times;</button>
+                <strong>Ajouté avec succés</strong>
+            </div>
+        </div>
+
+    </div>
+
+</div>
