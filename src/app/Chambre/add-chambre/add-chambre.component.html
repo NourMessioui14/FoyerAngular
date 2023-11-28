@@ -1,0 +1,28 @@
+<h2> Add New Room</h2>
+
+<form #addForm="ngForm">
+  <div class="form-group">
+
+    <label for="numeroChambre">Room Number</label>
+    <input type="number" class="form-control" id="numeroChambre" name="numeroChambre" ngModel required #numeroChambre="ngModel">
+    <small class="text-danger" *ngIf="numeroChambre.invalid && (numeroChambre.dirty || numeroChambre.touched)">Room number is required.</small>
+    <br>
+
+    <label for="typeC">Room Type</label>
+    <select class="form-control" id="typeC" name="typeC" ngModel required #typeC="ngModel">
+      <option value="SIMPLE">Simple</option>
+      <option value="DOUBLE">Double</option>
+      <option value="TRIPLE">Triple</option>
+    </select>
+    <small class="text-danger" *ngIf="typeC.invalid && (typeC.dirty || typeC.touched)">Please select a room type.</small>
+    <br>
+    <label for="image">Image</label>
+    <input type="text" class="form-control" id="image" name="image" ngModel required #image="ngModel">
+    <small class="text-danger" *ngIf="image.invalid && (image.dirty || image.touched)">Image URL is required.</small>
+    <br>
+    <button type="submit" class="btn btn-primary" [disabled]="addForm.invalid">Save</button>
+
+  </div>
+</form>
+
+<router-outlet></router-outlet>

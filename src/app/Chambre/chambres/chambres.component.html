@@ -1,0 +1,34 @@
+<!--
+<app-chambres></app-chambres>
+-->
+<app-search></app-search>
+<!--
+  <button class="btn btn-md btn-outline-primary">
+    <i class="fa fa-user" routerLink="add"></i>Add Room</button>
+     </button> -->
+<a routerLink="/add">
+    <button class="btn btn-md btn-outline-primary">
+      <i class="fa fa-user"></i>Add new room</button>
+  </a>
+
+<ul>
+  <li *ngFor=" let chambre of listChambre ">
+
+    <a routerLink="/details/{{chambre.idChambre}}">
+    <img src="{{chambre.image}}" alt=" room images">
+      <div class="content">
+          <div class="name">
+            {{chambre.typeC}}
+
+          </div>
+
+        <button class="btn btn-md btn-outline-primary">
+          <i class="fa fa-user"></i>update</button>
+
+      </div>
+    </a>
+  </li>
+</ul>
+<router-outlet></router-outlet>
+
+

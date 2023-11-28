@@ -1,0 +1,33 @@
+ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+}
+ul li a{
+  height: 20rem;
+  width: 20rem ;
+  border: 1px solid whitesmoke;
+  border-radius: 1rem ;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden ;
+  color: #e72929 ;
+
+}
+li a:hover{
+  opacity: 0.9;
+  cursor: pointer;
+}
+.border{
+  padding: 10px;
+}
+.btn{
+  margin-right: 10px;
+}
+.fa {
+  margin-right: 10px;
+}
