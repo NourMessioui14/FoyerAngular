@@ -8,12 +8,14 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FoyerModule } from './foyer/foyer.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ClientComponent } from './client/client.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    ClientComponent
   ],
   imports: [
     BrowserModule,

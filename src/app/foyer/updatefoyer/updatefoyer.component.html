@@ -1,22 +1,20 @@
+<div class="container">
+
+  <h2 class="text-center mb-4">modifier un foyer</h2>
+  <div class="row justify-content-center">
+      <div class="col-md-6">
+<form #updateForm="ngForm" (ngSubmit)="updateFoyer()">
+  <div class="mb-3">
+
+      </div>
+      <label for="nomfoyer">Nom foyer </label>
+      <input type="text" class="form-control" id="nomFoyer" name="nomFoyer" [(ngModel)]="foyerData.nomFoyer" #nomFoyer="ngModel">
+      <small class="text text-danger" *ngIf="nomFoyer?.errors?.['required'] && nomFoyer.touched">Date required</small>
+      <label class="form-check-label" for="capaciteFoyer">capaciteFoyer</label>
 
 
-<h2>update Foyer</h2>
-<form class="form-group" [formGroup]="updateForm" *ngIf="updateForm">
-    <div class="form-group">
-      <label for="fn">nomFoyer</label>
-      <input type="text"  id="nomFoyer" class="form-control" name="name"  formControlName="fn">
-     <!-- <small class="text text-danger" *ngIf="fn?.errors?.['required'] && fn.touched">Name is required</small>
-      <small class="text text-danger" *ngIf="fn?.errors?.['minlength'] && fn.touched">first name should have at least 3 characters</small>
-      <small class="text text-danger" *ngIf="fn?.errors?.['pattern'] && fn.touched">first name should only contain letters</small>-->
-
-      <label for="fn">capacite Foyer </label>
-      <input type="text"  id="capaciteFoyer" class="form-control" name="capaciteFoyer"  formControlName="ln">
-    <!--  <small class="text text-danger" *ngIf="ln?.errors?.['required'] && ln.touched">Last name is required</small>
-      <small class="text text-danger" *ngIf="ln?.errors?.['minlength'] && ln.touched">Last name should have at least 3 characters</small>
-      <small class="text text-danger" *ngIf="ln?.errors?.['pattern'] && ln.touched">Last name should only contain letters</small>-->
-
-    </div>
-
-    <button type="button" class="btn btn-primary" (click)="update()">Update Foyer</button>
-    </form>
-  
+      <input type="data"class="form-control" id="capaciteFoyer" name="capaciteFoyer" [(ngModel)]="foyerData.capaciteFoyer" #capaciteFoyer="ngModel">
+      
+      <button type="submit" class="btn btn-primary">Modifier foyer</button>
+  </form>
+</div>

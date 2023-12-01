@@ -31,9 +31,10 @@ export class FoyerService {
 
   
   
+ 
   updateFoyer(foyer: Foyer): Observable<any> {
-    return this.http.put(this.URl,foyer);
-
+    const url = `${this.URl}/${foyer.idFoyer}`;
+    return this.http.put(url, foyer);
   }
   
  
