@@ -7,7 +7,7 @@ import { EditBlocComponent } from './edit-bloc/edit-bloc.component';
 const routes: Routes = [
   {path:"bloc-list", component: BlocListComponent},
   {path:"add-bloc", component: AddBlocComponent},
-  {path:"edit-bloc", component: EditBlocComponent}
+  {path:"edit-bloc/:id", component: EditBlocComponent}
 ];
 
 @NgModule({

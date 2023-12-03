@@ -2,24 +2,25 @@
     <th>
         <button class="btn btn-primary" [routerLink]="['/add-bloc']">Ajouter un Bloc</button>
     </th>
-    <input type="search" class="form-control" style="width: 50%; margin: 10px auto ;">
+    <input type="text" name="search" [(ngModel)]="searchText" type="search" class="form-control" placeholder="search" style="width: 50%; margin: 10px auto ;">
     <table class="table table-light">
         <thead class="thead-light">
             <tr>
                 <th>identifiant</th>
                 <th>nom</th>
                 <th>capacité</th>
+                <th></th>
 
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let b of blocs">
+            <tr *ngFor="let b of blocs | filter : searchText">
                 <td>{{b.idBloc}}</td>
                 <td>{{b.nomBloc}}</td>
                 <td>{{b.capacityBloc}}</td>
                 <td>
-                    <button class="btn btn-warning" style="margin-right: 10px;" [routerLink]="['/edit-bloc']">Modifier</button>
-                    <button class="btn btn-danger" >Supprimer</button>
+                    <button class="btn btn-warning" style="margin-right: 10px;" [routerLink]="['/edit-bloc',b.idBloc]">Modifier</button>
+                    <button class="btn btn-danger" (click)="deleteBloc(b.idBloc)" >Supprimer</button>
                 </td>
             </tr>
         </tbody>

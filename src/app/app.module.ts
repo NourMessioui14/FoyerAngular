@@ -11,6 +11,7 @@ import { BlocService } from './bloc/bloc.service';
 import { AddBlocComponent } from './add-bloc/add-bloc.component';
 import { EditBlocComponent } from './edit-bloc/edit-bloc.component';
 import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [BlocService],
   bootstrap: [AppComponent]

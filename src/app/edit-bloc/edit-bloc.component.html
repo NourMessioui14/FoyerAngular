@@ -1,26 +1,31 @@
 <p>edit-bloc works!</p>
-<div class="container-fluid">
-    <div class="card" style="width: 50%; margin: 10px auto;">
-        <div class="card-header">
+<div class="container">
+
+    <h2 class="text-center mb-4">
             Modifier un Bloc
-        </div>
-        <div class="card-body">
-            <div class="form-group">
+        </h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+      <form #updateForm="ngForm" (ngSubmit)="updateBloc()">
+        <div class="mb-3"> </div>
+
+        
                 <label for="nomBloc">Nom du Bloc</label>
-                <input [(ngModel)]="bloc.nomBloc" id="nomBloc" class="form-control" type="text" name="">
-            </div>
+                <input [(ngModel)]="blocData.nomBloc" #nomBloc="ngModel" id="nomBloc" class="form-control" type="text" name="nomBloc">
+            
+                <small class="text text-danger" *ngIf="nomBloc?.errors?.['required'] && nomBloc.touched">Date required</small>
 
-            <div class="form-group">
-                <label for="capacityBloc">capacité du Bloc</label>
-                <input [(ngModel)]="bloc.capacityBloc" id="capacityBloc" class="form-control" type="number" name="">
-            </div>
+            
+                <label class="form-check-label" for="capacityBloc">capacité du Bloc</label>
+                <input [(ngModel)]="blocData.capacityBloc" #capacityBloc="ngModel" id="capacityBloc" class="form-control" type="data" name="capacityBloc">
+            
 
-            <div class="form-group">
-                <button class="btn btn-primary" (click)="updateBloc()">Modifier</button>
-            </div>
+            
+                <button type="submit" class="btn btn-primary">Modifier</button>
+           
+      </form>
 
-
-        </div>
+    
 
         <!--<div class="card-footer" *ngIf="showAlert">
             <div class="alert alert-success" role="alert">
@@ -29,6 +34,5 @@
             </div>
         </div>-->
 
-    </div>
 
 </div>
