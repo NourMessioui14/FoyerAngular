@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Bloc } from '../bloc';
-import { BlocService } from '../bloc/bloc.service';
+import { Bloc } from '../../bloc';
+import { BlocService } from '../../core/services/bloc/bloc.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Bloc } from '../bloc';
+import { Bloc } from '../../../bloc';
 import { Observable, catchError } from 'rxjs';
 
 @Injectable({

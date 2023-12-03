@@ -6,12 +6,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
-import { BlocListComponent } from './bloc-list/bloc-list.component'
-import { BlocService } from './bloc/bloc.service';
-import { AddBlocComponent } from './add-bloc/add-bloc.component';
-import { EditBlocComponent } from './edit-bloc/edit-bloc.component';
+import { BlocListComponent } from './bloc/bloc-list/bloc-list.component'
+import { BlocService } from './core/services/bloc/bloc.service';
+import { AddBlocComponent } from './bloc/add-bloc/add-bloc.component';
+import { EditBlocComponent } from './bloc/edit-bloc/edit-bloc.component';
 import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { UniversiteListComponent } from './universite-list/universite-list.component';
+import { AddUniversiteComponent } from './add-universite/add-universite.component';
+import { EditUniversiteComponent } from './edit-universite/edit-universite.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     SidebarComponent,
     BlocListComponent,
     AddBlocComponent,
-    EditBlocComponent
+    EditBlocComponent,
+    UniversiteListComponent,
+    AddUniversiteComponent,
+    EditUniversiteComponent
   ],
   imports: [
     BrowserModule,

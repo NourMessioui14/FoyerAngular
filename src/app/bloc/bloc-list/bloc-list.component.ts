@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Bloc } from '../bloc';
-import { BlocService } from '../bloc/bloc.service';
+import { Bloc } from '../../bloc';
+import { BlocService } from '../../core/services/bloc/bloc.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 

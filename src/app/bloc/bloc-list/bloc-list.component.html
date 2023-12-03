@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <th>
-        <button class="btn btn-primary" [routerLink]="['/add-bloc']">Ajouter un Bloc</button>
+        <button class="btn btn-primary " [routerLink]="['/add-bloc']">Ajouter un Bloc</button>
     </th>
     <input type="text" name="search" [(ngModel)]="searchText" type="search" class="form-control" placeholder="search" style="width: 50%; margin: 10px auto ;">
     <table class="table table-light">
@@ -19,8 +19,8 @@
                 <td>{{b.nomBloc}}</td>
                 <td>{{b.capacityBloc}}</td>
                 <td>
-                    <button class="btn btn-warning" style="margin-right: 10px;" [routerLink]="['/edit-bloc',b.idBloc]">Modifier</button>
-                    <button class="btn btn-danger" (click)="deleteBloc(b.idBloc)" >Supprimer</button>
+                    <button type="submit" class="btn btn-primary" [routerLink]="['/edit-bloc',b.idBloc]"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger" (click)="deleteBloc(b.idBloc)" ><i class="fas fa-trash-alt"></i></button>
                 </td>
             </tr>
         </tbody>
