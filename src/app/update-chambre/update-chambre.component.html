@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <h1 class="text-center mb-4">Update Room</h1>
+
+            <form [formGroup]="chambreForm" (ngSubmit)="updateChambre()" class="card p-4">
+                <div class="form-group">
+                    <label for="idChambre">Room ID</label>
+                    <input type="number" class="form-control" id="idChambre" formControlName="idChambre" readonly>
+                    <br>
+
+                    <label for="numeroChambre">Room Number</label>
+                    <input type="number" class="form-control" id="numeroChambre" formControlName="numeroChambre" required>
+                    <small class="text-danger" *ngIf="numeroChambre?.invalid && (numeroChambre?.dirty || numeroChambre?.touched)">Room number is required.</small>
+                    <br>
+
+                    <label for="typeC">Room Type</label>
+                    <input type="text" class="form-control" id="typeC" formControlName="typeC" required>
+                    <small class="text-danger" *ngIf="typeC?.invalid && (typeC?.dirty || typeC?.touched)">Please select a room type.</small>
+                    <br>
+
+                    <button type="submit" class="btn btn-primary" >Update</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>

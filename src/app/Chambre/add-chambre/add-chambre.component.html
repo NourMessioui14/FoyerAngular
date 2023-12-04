@@ -1,7 +1,8 @@
 <h2> Add New Room</h2>
 
-<form #addForm="ngForm">
+<form #addForm="ngForm" (ngSubmit)="Add(addForm)" class="card p-4">
   <div class="form-group">
+    <!-- Remove idChambre input field -->
 
     <label for="numeroChambre">Room Number</label>
     <input type="number" class="form-control" id="numeroChambre" name="numeroChambre" ngModel required #numeroChambre="ngModel">
@@ -16,12 +17,7 @@
     </select>
     <small class="text-danger" *ngIf="typeC.invalid && (typeC.dirty || typeC.touched)">Please select a room type.</small>
     <br>
-    <label for="image">Image</label>
-    <input type="text" class="form-control" id="image" name="image" ngModel required #image="ngModel">
-    <small class="text-danger" *ngIf="image.invalid && (image.dirty || image.touched)">Image URL is required.</small>
-    <br>
     <button type="submit" class="btn btn-primary" [disabled]="addForm.invalid">Save</button>
-
   </div>
 </form>
 

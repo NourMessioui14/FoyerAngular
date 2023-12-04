@@ -1,7 +1,8 @@
-import { TypeChambre } from './type-chambre.enum';
+import {TypeChambre} from "./type-chambre.enum";
+
 export class Chambre {
-  idChambre!: number;
+  idChambre?: number;
   numeroChambre!: number;
   typeC!: TypeChambre;
-  image!: string;
+
 }

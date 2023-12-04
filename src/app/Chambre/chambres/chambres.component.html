@@ -1,17 +1,46 @@
-<!--
-<app-chambres></app-chambres>
--->
-<app-search></app-search>
-<!--
-  <button class="btn btn-md btn-outline-primary">
-    <i class="fa fa-user" routerLink="add"></i>Add Room</button>
-     </button> -->
-<a routerLink="/add">
+
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <h1 class="text-center mb-4">Liste des Chambres</h1>
+         <app-search></app-search>
+       <a routerLink="/add">
     <button class="btn btn-md btn-outline-primary">
       <i class="fa fa-user"></i>Add new room</button>
-  </a>
+       </a>
 
-<ul>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th >numeroChambre</th>
+    <th >TypeChambre</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let chambre of listChambre">
+    <td>{{ chambre.idChambre }}</td>
+    <td>{{ chambre.numeroChambre  }}</td>
+    <td>{{ chambre.typeC }}</td>
+
+
+    <td>
+      <button (click)="deleteChambre(chambre.idChambre)" class="btn btn-danger">Supprimer</button>
+    <a [routerLink]="['/update',chambre.idChambre]"class="btn btn-warning">Edit</a>
+
+    </td>
+
+    <td>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<!--
+    <ul>
   <li *ngFor=" let chambre of listChambre ">
 
     <a routerLink="/details/{{chambre.idChambre}}">
@@ -22,13 +51,21 @@
 
           </div>
 
-        <button class="btn btn-md btn-outline-primary">
+     <button class="btn btn-md btn-outline-primary">
           <i class="fa fa-user"></i>update</button>
 
-      </div>
+
     </a>
+
   </li>
 </ul>
-<router-outlet></router-outlet>
+
+ -->
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>
+
+
 
 
