@@ -19,6 +19,11 @@ export class UniversiteService {
     const URL = `${this.url}/${idUniversite}`
     return this.http.delete<Universite>(URL);
   }
+  
+  updateUniversite(universite: Universite) {
+    const URL= `${this.url}/${universite.idUniversite}`;
+    return this.http.put<Universite>(URL, universite);
+  }
 
   getUniversiteList(){
     return this.http.get(this.url);

@@ -1,0 +1,37 @@
+<div class="container">
+
+    <h2 class="text-center mb-4">
+            Modifier une université
+        </h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+      <form #updateForm="ngForm" (ngSubmit)="updateUniversite()">
+        <div class="mb-3"> </div>
+        
+                <label for="nomUniversite">Nom de l'université</label>
+                <input [(ngModel)]="universiteData.nomUniversite" #nomUniversite="ngModel" id="nomUniversite" class="form-control" type="text" name="nomUniversite">
+            
+                <small class="text text-danger" *ngIf="nomUniversite?.errors?.['required'] && nomUniversite.touched">Date required</small>
+
+            
+                <label class="form-check-label" for="adresse">adresse</label>
+                <input [(ngModel)]="universiteData.adresse" #adresse="ngModel" id="adresse" class="form-control" type="data" name="adresse">
+            
+
+            
+                <button type="submit" class="btn btn-primary">Modifier</button>
+           
+      </form>
+
+    
+
+        <!--<div class="card-footer" *ngIf="showAlert">
+            <div class="alert alert-success" role="alert">
+                <button class="close" (click)="closeAlert()">&times;</button>
+                <strong>Modifié avec succés</strong>
+            </div>
+        </div>-->
+
+
+</div>
+

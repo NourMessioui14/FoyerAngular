@@ -1,4 +1,3 @@
-<p>universite-list works!</p>
 <div class="container-fluid">
     <th>
         <button class="btn btn-primary " [routerLink]="['/add-universite']">Ajouter une Universite</button>
@@ -21,7 +20,7 @@
                 <td>{{u.adresse}}</td>
 
                 <td>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                    <button type="submit" class="btn btn-primary" [routerLink]="['/edit-universite',u.idUniversite]"><i class="fas fa-edit"></i></button>
                     <button type="button" class="btn btn-danger" (click)="deleteUniversite(u.idUniversite)"><i class="fas fa-trash-alt"></i></button>
                 </td>
 
