@@ -12,9 +12,13 @@ export class BlocService {
 
   constructor(private http: HttpClient) { }
 
-  createBloc(bloc: Bloc){
-    return this.http.post<Bloc>(this.url, bloc);
+  createBloc(idFoyer:number, bloc: Bloc){
+    return this.http.post<Bloc>('${this.url}/addBloc/${idFoyer}', bloc);
   }
+
+  /*createBloc(bloc: Bloc){
+    return this.http.post<Bloc>(this.url, bloc);
+  }*/
   deleteBloc(idBloc:number){
     const URL = `${this.url}/${idBloc}`
     return this.http.delete<Bloc>(URL);

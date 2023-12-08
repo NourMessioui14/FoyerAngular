@@ -9,6 +9,8 @@ import { BlocService } from '../../core/services/bloc/bloc.service';
 })
 export class AddBlocComponent implements OnInit {
   
+  foyers: any[] = [];
+  selectedFoyerId: number | null = null;
   bloc = new Bloc();
   showAlert=false;
   constructor(private blocService:BlocService){}
@@ -16,14 +18,36 @@ export class AddBlocComponent implements OnInit {
   ngOnInit() {
 
   }
-   saveBloc(){
+
+  saveBloc() {
+    // Vérifiez si un foyer a été sélectionné
+    if (this.selectedFoyerId) {
+      const blocToAdd: Bloc = {
+        nomBloc: this.bloc.nomBloc,
+        capacityBloc: this.bloc.capacityBloc,
+        idBloc: 0
+      };
+  
+      this.blocService.createBloc(this.selectedFoyerId, blocToAdd)
+        .subscribe((response) => {
+          console.log(response);
+          this.bloc = new Bloc();
+          this.showAlert = true;
+        });
+    } else {
+      // Gérer le cas où aucun foyer n'est sélectionné
+      console.log("Aucun foyer sélectionné pour affecter le bloc.");
+      // Autres actions à prendre en cas d'erreur ou de validation manquante
+    }
+  }
+   /*saveBloc(){
     this.blocService.createBloc(this.bloc).subscribe((response) => {
       console.log(response);
       this.bloc=new Bloc();
       this.showAlert=true;
     }
     );
-   }
+   }*/
    closeAlert(){
     this.showAlert=false;
    }

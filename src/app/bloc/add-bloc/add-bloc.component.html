@@ -16,6 +16,14 @@
 
 
             <div class="form-group">
+                <label for="foyerSelectionne">Sélectionner un Foyer</label>
+                <select [(ngModel)]="selectedFoyerId" id="foyerSelectionne" class="form-control">
+                  <option *ngFor="let foyer of foyers" [value]="foyer.idFoyer">{{ foyer.nomFoyer }}</option>
+                </select>
+              </div>
+
+
+            <div class="form-group">
                 <button class="btn btn-primary" (click)="saveBloc()">Ajouter</button>
             </div>
 
