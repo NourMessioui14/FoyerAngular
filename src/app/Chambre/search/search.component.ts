@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
+import {TypeChambre} from "../../Modele/type-chambre.enum";
+import {ChambreService} from "../chambre.service";
+import {Chambre} from "../../Modele/chambre";
 
 @Component({
   selector: 'app-search',
@@ -8,20 +11,39 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class SearchComponent implements OnInit {
   searchItem: string = '';
+  searchResults: Chambre[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+      private route: ActivatedRoute,
+      private router: Router,
+      private chambreService: ChambreService
+  ) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       if (params['searchItem']) {
         this.searchItem = params['searchItem'];
+        // Call the search function when the component initializes
+        this.search();
       }
     });
   }
 
   search(): void {
     if (this.searchItem) {
-      this.router.navigateByUrl('/search/' + this.searchItem);
+      // Cast the string to TypeChambre
+      const typeChambreValue = this.searchItem as TypeChambre;
+
+      this.chambreService.searchByType(typeChambreValue).subscribe(
+          (results) => {
+            this.searchResults = results;
+          },
+          (error) => {
+            console.error('Error searching by type', error);
+          }
+      );
     }
-  }
+
+
+}
 }

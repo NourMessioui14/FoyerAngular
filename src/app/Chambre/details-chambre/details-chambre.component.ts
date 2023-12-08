@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Chambre} from "../chambre";
+import {Chambre} from "../../Modele/chambre";
 import {ActivatedRoute} from "@angular/router";
 import {ChambreService} from "../chambre.service";
 import {Observable, of, switchMap} from "rxjs";

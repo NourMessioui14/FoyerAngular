@@ -1,8 +1,7 @@
-<h2> Add New Room</h2>
 
-<form #addForm="ngForm" (ngSubmit)="Add(addForm)" class="card p-4">
+<!--
+<form #addForm="ngForm">
   <div class="form-group">
-    <!-- Remove idChambre input field -->
 
     <label for="numeroChambre">Room Number</label>
     <input type="number" class="form-control" id="numeroChambre" name="numeroChambre" ngModel required #numeroChambre="ngModel">
@@ -16,9 +15,36 @@
       <option value="TRIPLE">Triple</option>
     </select>
     <small class="text-danger" *ngIf="typeC.invalid && (typeC.dirty || typeC.touched)">Please select a room type.</small>
-    <br>
+
+  <br>
     <button type="submit" class="btn btn-primary" [disabled]="addForm.invalid">Save</button>
+
   </div>
 </form>
+-->
+<div class="container">
+  <h2 class="text-center mb-4">Add New Room</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form #addForm="ngForm" (ngSubmit)="add(addForm)" class="card p-4">
 
+        <label for="numeroChambre">num chambre</label>
+        <input type="number" class="form-control" id="numeroChambre" name="numeroChambre" ngModel required #numeroChambre="ngModel">
+        <small class="text-danger" *ngIf="numeroChambre.invalid && (numeroChambre.dirty || numeroChambre.touched)">Room number is required.</small>
+        <br>
+        <label for="typeC">type chambre</label>
+        <select class="form-control" id="typeC" name="typeC" ngModel required #typeC="ngModel">
+          <option *ngFor="let roomType of typesChambre" [value]="roomType">{{ roomType }}</option>
+        </select>
+        <small class="text-danger" *ngIf="typeC.invalid && (typeC.dirty || typeC.touched)">Please select a room type.</small>
+        <br>
+
+        <br>
+
+
+        <button type="submit" class="btn btn-primary">Ajouter </button>
+      </form>
+    </div>
+  </div>
+</div>
 <router-outlet></router-outlet>

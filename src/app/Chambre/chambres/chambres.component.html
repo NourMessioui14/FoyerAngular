@@ -1,66 +1,44 @@
 
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-8">
-      <h1 class="text-center mb-4">Liste des Chambres</h1>
-         <app-search></app-search>
+<div class="col-12">
+  <div class="bg-light rounded h-100 p-4">
+    <h4 class="mb-4">List des Chambres</h4>
+
+        <app-search></app-search>
        <a routerLink="/add">
     <button class="btn btn-md btn-outline-primary">
       <i class="fa fa-user"></i>Add new room</button>
        </a>
+    <div class="table-responsive">
+      <table class="table">
+       <thead>
+         <tr>
+            <th>ID</th>
+            <th >numeroChambre</th>
+            <th >TypeChambre</th>
 
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th >numeroChambre</th>
-    <th >TypeChambre</th>
-
-  </tr>
-  </thead>
+         </tr>
+       </thead>
   <tbody>
-  <tr *ngFor="let chambre of listChambre">
-    <td>{{ chambre.idChambre }}</td>
-    <td>{{ chambre.numeroChambre  }}</td>
-    <td>{{ chambre.typeC }}</td>
+     <tr role="row" class="odd" *ngFor="let chambre of listChambre">
+         <td>{{ chambre.idChambre }}</td>
+         <td>{{ chambre.numeroChambre  }}</td>
+         <td>{{ chambre.typec }}</td>
 
 
     <td>
+
       <button (click)="deleteChambre(chambre.idChambre)" class="btn btn-danger">Supprimer</button>
     <a [routerLink]="['/update',chambre.idChambre]"class="btn btn-warning">Edit</a>
-
     </td>
 
-    <td>
-    </td>
+
   </tr>
   </tbody>
 </table>
 
 
-<!--
-    <ul>
-  <li *ngFor=" let chambre of listChambre ">
 
-    <a routerLink="/details/{{chambre.idChambre}}">
-    <img src="{{chambre.image}}" alt=" room images">
-      <div class="content">
-          <div class="name">
-            {{chambre.typeC}}
-
-          </div>
-
-     <button class="btn btn-md btn-outline-primary">
-          <i class="fa fa-user"></i>update</button>
-
-
-    </a>
-
-  </li>
-</ul>
-
- -->
     </div>
   </div>
   <router-outlet></router-outlet>

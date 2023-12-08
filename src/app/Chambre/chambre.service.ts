@@ -1,59 +1,60 @@
 import { Injectable } from '@angular/core';
 import {Observable, of} from "rxjs";
-import {TypeChambre} from "./type-chambre.enum";
-import {Chambre} from "./chambre";
+import {Chambre} from "../Modele/chambre";
 import { map } from 'rxjs/operators';
 import {HttpClient} from "@angular/common/http";
-import {ɵElement, ɵFormGroupValue, ɵTypedOrUntyped} from "@angular/forms";
+import {TypeChambre} from "../Modele/type-chambre.enum";
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChambreService {
-  private URL="http://localhost:8081/chambre"
+  private URLpostgetdelete="http://localhost:8081/chambre"
+  private urlup="http://localhost:8081/chambre/updateChambre";
+  private   urlById =  "http://localhost:8081/chambre/Chambres"
+  //private  URLBloc="http://localhost:8081/bloc/Blocs"
+  Chambre=[];
+    //Chambres: Chambre[];
+ // Bloc=[];
 
-Chambre=[];
-  constructor( private  http:HttpClient) {}
-    getAll(): Observable<any[]>{
-        return this.http.get<any[]>(this.URL);}
+    constructor(private http: HttpClient) {}
+
+    updateChambre(Chambre: Chambre):Observable<Chambre>{
+        alert("success update");
+        return this.http.put<Chambre>(this.urlup, Chambre);
+
+    }
+    getAll(): Observable<Chambre[]>{
+        return this.http.get<Chambre[]>(this.URLpostgetdelete);}
 
 
-    AddChambre(newChambre: Omit<Chambre, 'idChambre'>) {
-        return this.http.post(this.URL, newChambre);
+    AddChambre(chambre: Chambre): Observable<Chambre> {
+        return this.http.post<Chambre>(this.URLpostgetdelete, chambre);
     }
 
-    deleteChambre(idChambre: number | undefined): Observable<Chambre> {
-        const URL = `${this.URL}/${idChambre}`;
-        return this.http.delete<Chambre>(URL);
+
+
+    deleteChambre(idChambre: Number): Observable<Object> {
+        //const URL = `${this.URL}/${idChambre}`;
+        // @ts-ignore
+      return this.http.delete(this.URLpostgetdelete+'/'+idChambre);
     }
 
-    getChambreById(id: number): Observable<Chambre | undefined> {
-        console.log('Fetching chambre with id:', id);
-        return this.getAll().pipe(
-            map(chambres => chambres.find(chambre => chambre.idChambre === id))
-        );
+    getChambreById(id: number): Observable<Chambre> {
+        return this.http.get<Chambre>(this.urlById+'id');
+
     }
 
-    updateChambre(Chambre: Chambre):Observable<any>{
-  const URL ='$(this.URL)/${Chambre.idChambre}';
- return this.http.put(URL , Chambre);
-  }
+
+    searchByType(type: TypeChambre): Observable<Chambre[]> {
+        const url = `${this.URLpostgetdelete}/searchByType/${type}`;
+        return this.http.get<Chambre[]>(url);
+    }
 
 
 
 
-  /*
-  getAll(): Observable<Chambre[]> {
-    return of([
-      { idChambre: 1, numeroChambre: 101, typeC: TypeChambre.DOUBLE , image:'/assets/double-1.jpg'},
-      { idChambre: 2, numeroChambre: 102, typeC: TypeChambre.DOUBLE , image:'/assets/double-2.jpg'},
-      { idChambre: 3, numeroChambre: 103, typeC: TypeChambre.SIMPLE , image:'/assets/simple-2.jpg'},
-      { idChambre: 4, numeroChambre: 104, typeC: TypeChambre.SIMPLE , image:'/assets/simple-1.jpg'},
-      { idChambre: 5, numeroChambre: 105, typeC: TypeChambre.TRIPLE , image:'/assets/triple-1.jpg'},
-      { idChambre: 6, numeroChambre: 106, typeC: TypeChambre.TRIPLE , image:'/assets/triple-2.jpg'},
-
-    ]);
-  }*/
 }
 
