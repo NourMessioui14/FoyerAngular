@@ -5,6 +5,7 @@ export class User {
     email!:string;
     password!:string;
     age!:number;
+    adresse!:string;
     nbphone!:number;
   role!:'admin' | 'client' | 'etudiant';
 

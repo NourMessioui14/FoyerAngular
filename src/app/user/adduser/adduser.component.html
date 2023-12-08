@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="main-box clearfix mt-5 mb-4">
+        <h2 class="text-center">Ajouter un utilisateur</h2>
+
+        <form #addForm="ngForm" (ngSubmit)="adduser(addForm)">
+          <div class="form-group">
+            <label for="nom">Nom:</label>
+            <input type="text" class="form-control" id="nom" name="nom" ngModel required minlength="3" #nom="ngModel">
+            <small class="text text-danger" *ngIf="nom?.errors?.['required'] && nom.touched">Le nom est requis</small>
+            <small class="text text-danger" *ngIf="nom?.errors?.['minlength'] && nom.touched">Le nom doit comporter au moins 3 caractères</small>
+          </div>
+
+          <div class="form-group">
+            <label for="prenom">Prénom:</label>
+            <input type="text" class="form-control" id="prenom" name="prenom" ngModel required minlength="3" #prenom="ngModel">
+            <small class="text text-danger" *ngIf="prenom?.errors?.['required'] && prenom.touched">Le prénom est requis</small>
+            <small class="text text-danger" *ngIf="prenom?.errors?.['minlength'] && prenom.touched">Le prénom doit comporter au moins 3 caractères</small>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" id="email" name="email" ngModel required email #email="ngModel">
+            <small class="text text-danger" *ngIf="email?.errors?.['required'] && email.touched">L'email est requis</small>
+            <small class="text text-danger" *ngIf="email?.errors?.['email'] && email.touched">Veuillez saisir une adresse email valide</small>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Mot de passe:</label>
+            <input type="password" class="form-control" id="password" name="password" ngModel required minlength="3" #password="ngModel">
+            <small class="text text-danger" *ngIf="password?.errors?.['required'] && password.touched">Le mot de passe est requis</small>
+            <small class="text text-danger" *ngIf="password?.errors?.['minlength'] && password.touched">Le mot de passe doit comporter au moins 3 caractères</small>
+          </div>
+
+          <div class="form-group">
+            <label for="age">Âge:</label>
+            <input type="number" class="form-control" id="age" name="age" ngModel required min="1" #age="ngModel">
+            <small class="text text-danger" *ngIf="age?.errors?.['required'] && age.touched">L'âge est requis</small>
+            <small class="text text-danger" *ngIf="age?.errors?.['min'] && age.touched">L'âge doit être supérieur à 0</small>
+          </div>
+
+          <div class="form-group">
+            <label for="adresse">Adresse:</label>
+            <input type="text" class="form-control" id="adresse" name="adresse" ngModel required minlength="3" #adresse="ngModel">
+            <small class="text text-danger" *ngIf="adresse?.errors?.['required'] && adresse.touched">L'adresse est requise</small>
+            <small class="text text-danger" *ngIf="adresse?.errors?.['pattern'] && adresse.touched">L'adresse doit contenir uniquement des lettres</small>
+          </div>
+
+          <div class="form-group">
+            <label for="nbphone">Téléphone:</label>
+            <input type="text" class="form-control" id="nbphone" name="nbphone" ngModel required minlength="5" #nbphone="ngModel">
+            <small class="text text-danger" *ngIf="nbphone?.errors?.['required'] && nbphone.touched">Le numéro de téléphone est requis</small>
+          </div>
+
+          <button type="submit" class="btn btn-primary" [disabled]="addForm.invalid">Soumettre</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

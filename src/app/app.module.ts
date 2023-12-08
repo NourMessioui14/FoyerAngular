@@ -9,13 +9,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FoyerModule } from './foyer/foyer.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientComponent } from './client/client.component';
+import { FrontComponent } from './front/front.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SidebarComponent,
-    ClientComponent
+    ClientComponent,
+    FrontComponent,
+  
   ],
   imports: [
     BrowserModule,
