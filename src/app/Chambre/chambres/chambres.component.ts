@@ -30,7 +30,7 @@ getChambre(){
 }
   deleteChambre(id:any){
     this.cs.deleteChambre(Number(id)).subscribe(()=>this.getChambre())
-      alert('chambre supprimée avec succès');;
+      alert('chambre supprimée avec succès');
 
   }
 

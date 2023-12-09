@@ -16,16 +16,14 @@ export class ChambreService {
   private   urlById =  "http://localhost:8081/chambre/Chambres"
   //private  URLBloc="http://localhost:8081/bloc/Blocs"
   Chambre=[];
-    //Chambres: Chambre[];
+
  // Bloc=[];
 
     constructor(private http: HttpClient) {}
 
-    updateChambre(Chambre: Chambre):Observable<Chambre>{
-        alert("success update");
-        return this.http.put<Chambre>(this.urlup, Chambre);
-
-    }
+  updateChambre(Chambre: Chambre): Observable<Chambre> {
+    return this.http.put<Chambre>(this.urlup, Chambre);
+  }
     getAll(): Observable<Chambre[]>{
         return this.http.get<Chambre[]>(this.URLpostgetdelete);}
 
@@ -43,15 +41,21 @@ export class ChambreService {
     }
 
     getChambreById(id: number): Observable<Chambre> {
-        return this.http.get<Chambre>(this.urlById+'id');
+        return this.http.get<Chambre>(this.urlById+'/'+id);
 
     }
 
 
+/*
     searchByType(type: TypeChambre): Observable<Chambre[]> {
         const url = `${this.URLpostgetdelete}/searchByType/${type}`;
         return this.http.get<Chambre[]>(url);
-    }
+    }*/
+
+  searchByType(type: string): Observable<Chambre[]> {
+    const url = '${this.URLpostgetdelete}/searchByType/${type}';
+    return this.http.get<Chambre[]>(url);
+  }
 
 
 

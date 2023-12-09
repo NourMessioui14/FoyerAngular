@@ -4,14 +4,16 @@ import {ChambresComponent} from "./Chambre/chambres/chambres.component";
 import {DetailsChambreComponent} from "./Chambre/details-chambre/details-chambre.component";
 import {AddChambreComponent} from "./Chambre/add-chambre/add-chambre.component";
 import {UpdateChambreComponent} from "./update-chambre/update-chambre.component";
+import {SearchComponent} from "./Chambre/search/search.component";
 
 const routes: Routes = [
   { path:"", redirectTo: "sidebar", pathMatch: "full"},
   {path: "chambres", component: ChambresComponent},
- {path:'search/:searchItem', component:ChambresComponent},
+  { path: 'search/:searchItem', component: SearchComponent },
+
   {path:'details/:id', component:DetailsChambreComponent},
   {path:'add',component:AddChambreComponent},
-  {path:'update/:id',component:UpdateChambreComponent}
+  { path: 'update/:idChambre', component: UpdateChambreComponent }
 ];
 
 @NgModule({

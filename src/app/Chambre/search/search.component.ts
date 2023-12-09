@@ -14,9 +14,9 @@ export class SearchComponent implements OnInit {
   searchResults: Chambre[] = [];
 
   constructor(
-      private route: ActivatedRoute,
-      private router: Router,
-      private chambreService: ChambreService
+    private route: ActivatedRoute,
+    private router: Router,
+    private chambreService: ChambreService
   ) {}
 
   ngOnInit() {
@@ -31,19 +31,14 @@ export class SearchComponent implements OnInit {
 
   search(): void {
     if (this.searchItem) {
-      // Cast the string to TypeChambre
-      const typeChambreValue = this.searchItem as TypeChambre;
-
-      this.chambreService.searchByType(typeChambreValue).subscribe(
-          (results) => {
-            this.searchResults = results;
-          },
-          (error) => {
-            console.error('Error searching by type', error);
-          }
+      this.chambreService.searchByType(this.searchItem).subscribe(
+        (results) => {
+          this.searchResults = results;
+        },
+        (error) => {
+          console.error('Error searching by type', error);
+        }
       );
     }
-
-
-}
+  }
 }

@@ -1,27 +1,72 @@
 
+<!--
+
+<form *ngIf="myChambre" [formGroup]="reactiveForm">
+  <div class="col-sm-12 col-xl-10">
+    <div class="bg-light rounded h-100 p-4">
+      <div class="card-body">
+        <h4 class="card-title">Chambre ID</h4>
+        <div class="mt-4">
+
+        </div>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title">Room Number</h4>
+        <div class="mt-4">
+          <div class="form-group">
+            <input type="number" formControlName="numeroChambre" class="form-control" name="numeroChambre" id="numeroChambre">
+          </div>
+          <div [ngStyle]="{'color':'red'}" class="error-message" *ngIf="numeroChambre?.errors?.['required'] && numeroChambre?.touched">Room Number is required</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title">Room Type</h4>
+        <div class="mt-4">
+          <div class="form-group">
+            <select formControlName="typec" class="form-control" name="typec" id="typec">
+              <option value="SIMPLE">Simple</option>
+              <option value="DOUBLE">Double</option>
+              <option value="TRIPLE">Triple</option>
+            </select>
+          </div>
+          <div [ngStyle]="{'color':'red'}" class="error-message" *ngIf="typec?.errors?.['required'] && typec?.touched">Room Type is required</div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="update()">Update </button>
+    </div>
+  </div>
+</form> -->
+
+
+
+<!--
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-8">
             <h1 class="text-center mb-4">Update Room</h1>
 
-            <form [formGroup]="chambreForm" (ngSubmit)="updateChambre()" class="card p-4">
-                <div class="form-group">
+          <form #updateForm="ngForm" (ngSubmit)="updateChambre()"> <div class="form-group">
                     <label for="idChambre">Room ID</label>
                     <input type="number" class="form-control" id="idChambre" formControlName="idChambre" readonly>
                     <br>
 
                     <label for="numeroChambre">Room Number</label>
-                    <input type="number" class="form-control" id="numeroChambre" formControlName="numeroChambre" required>
-                    <small class="text-danger" *ngIf="numeroChambre?.invalid && (numeroChambre?.dirty || numeroChambre?.touched)">Room number is required.</small>
+            <input [(ngModel)]="chambreData.numeroChambre" #numeroChambre="ngModel" id="numeroChambre" class="form-control" type="text" name="numeroChambre">
+            <small class="text-danger" *ngIf="numeroChambre?.invalid && (numeroChambre?.dirty || numeroChambre?.touched)">Room number is required.</small>
                     <br>
 
-                    <label for="typeC">Room Type</label>
-                    <input type="text" class="form-control" id="typeC" formControlName="typeC" required>
-                    <small class="text-danger" *ngIf="typeC?.invalid && (typeC?.dirty || typeC?.touched)">Please select a room type.</small>
-                    <br>
 
-                    <button type="submit" class="btn btn-primary" >Update</button>
+
+            <label for="typeC">Room Type</label>
+            <select [(ngModel)]="chambreData.typec" #typeC="ngModel" id="typeC" class="form-control" name="typeC">
+              <option value="SIMPLE">Simple</option>
+              <option value="DOUBLE">Double</option>
+              <option value="TRIPLE">Triple</option>
+            </select>
+            <small class="text-danger" *ngIf="typeC?.invalid && (typeC?.dirty || typeC?.touched)">Please select a room type.</small>
+            <br>
+            <button type="submit" class="btn btn-primary" >Update</button>
                 </div>
             </form>
 
@@ -29,4 +74,49 @@
     </div>
     <router-outlet></router-outlet>
 </div>
+-->
+
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <h1 class="text-center mb-4">Update Room</h1>
+<form [formGroup]="reactiveForm">
+  <div class="col-sm-12 col-xl-10">
+    <div class="bg-light rounded h-100 p-4">
+      <div class="card-body">
+        <h6 class="card-title">Numero Chambre</h6>
+        <div class="mt-4">
+          <div class="form-group">
+            <input type="text"formControlName="numeroChambre" class="form-control" name="numeroChambre"  id="numeroChambre">
+          </div>
+          <div [ngStyle]="{'color':'red'}" class="alter alter-danger" id="updateFieldNumeroChambre" *ngIf="numeroChambre?.errors?.['required'] && numeroChambre?.touched" > idDepart is required</div>
+        </div >
+        <br>
+        <h6 class="card-title">Type Chambre</h6>
+        <div class="mt-4">
+        <div class="form-group">
+          <select type="text"formControlName="typec" class="form-control" name="typec"  id="typec">
+            <option value="SIMPLE">Simple</option>
+            <option value="DOUBLE">Double</option>
+            <option value="TRIPLE">Triple</option>
+          </select>
+          <br>
+
+        </div>
+        <div [ngStyle]="{'color':'red'}" class="alter alter-danger" id="updateFieldTypec" *ngIf="typec?.errors?.['required'] && typec?.touched" > idDepart is required</div>
+
+      </div >
+
+      </div>
+      <div class="row justify-content-center">
+      <button type="submit" class="btn btn-primary" (click)="updateChambre()">update </button>
+      </div>
+    </div>
+  </div>
+</form>
+    </div>
+  </div>
+</div>
+
 

@@ -1,49 +1,46 @@
-
-
 <div class="col-12">
   <div class="bg-light rounded h-100 p-4">
     <h4 class="mb-4">List des Chambres</h4>
 
+    <div class="d-flex justify-content-between mb-3">
+      <div></div> <!-- Empty div to push the search bar to the right -->
+      <div>
         <app-search></app-search>
-       <a routerLink="/add">
-    <button class="btn btn-md btn-outline-primary">
-      <i class="fa fa-user"></i>Add new room</button>
-       </a>
+      </div>
+
+    </div>
+
+
     <div class="table-responsive">
       <table class="table">
-       <thead>
-         <tr>
-            <th>ID</th>
-            <th >numeroChambre</th>
-            <th >TypeChambre</th>
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>numeroChambre</th>
+          <th>TypeChambre</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr role="row" class="odd" *ngFor="let chambre of listChambre">
+          <td>{{ chambre.idChambre }}</td>
+          <td>{{ chambre.numeroChambre }}</td>
+          <td>{{ chambre.typec }}</td>
+          <td>
+            <button (click)="deleteChambre(chambre.idChambre)" class="btn btn-danger">Supprimer</button>
+            <a [routerLink]="['/update', chambre.idChambre]" class="btn waves-effect waves-light btn-warning">Edit</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
 
-         </tr>
-       </thead>
-  <tbody>
-     <tr role="row" class="odd" *ngFor="let chambre of listChambre">
-         <td>{{ chambre.idChambre }}</td>
-         <td>{{ chambre.numeroChambre  }}</td>
-         <td>{{ chambre.typec }}</td>
-
-
-    <td>
-
-      <button (click)="deleteChambre(chambre.idChambre)" class="btn btn-danger">Supprimer</button>
-    <a [routerLink]="['/update',chambre.idChambre]"class="btn btn-warning">Edit</a>
-    </td>
-
-
-  </tr>
-  </tbody>
-</table>
-
-
-
+    <!-- Add new room button below the table -->
+    <div class="mt-3 text-right">
+      <a routerLink="/add" class="btn btn-md btn-outline-primary">
+        <i class="fa fa-user"></i>Add new room
+      </a>
     </div>
   </div>
   <router-outlet></router-outlet>
 </div>
-
-
-
-
