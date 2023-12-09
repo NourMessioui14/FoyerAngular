@@ -13,7 +13,7 @@ export class BlocService {
   constructor(private http: HttpClient) { }
 
   createBloc(idFoyer:number, bloc: Bloc){
-    return this.http.post<Bloc>('${this.url}/addBloc/${idFoyer}', bloc);
+    return this.http.post<Bloc>(`${this.url}/addBloc/${idFoyer}`, bloc);
   }
 
   /*createBloc(bloc: Bloc){

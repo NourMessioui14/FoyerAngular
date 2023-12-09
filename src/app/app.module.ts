@@ -12,6 +12,7 @@ import { BlocModule } from './bloc/bloc.module';
 import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UniversiteModule } from './universite/universite.module';
+import { FoyerService } from './core/services/foyer.service';
 
 
 
@@ -30,7 +31,7 @@ import { UniversiteModule } from './universite/universite.module';
     FormsModule,
     Ng2SearchPipeModule
   ],
-  providers: [],
+  providers: [FoyerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

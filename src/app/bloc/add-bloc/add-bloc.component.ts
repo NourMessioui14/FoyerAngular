@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Bloc } from '../../bloc';
 import { BlocService } from '../../core/services/bloc/bloc.service';
+import { Foyer } from 'src/app/ModelFoyer/foyer';
+import { FoyerService } from 'src/app/core/services/foyer.service';
 
 @Component({
   selector: 'app-add-bloc',
@@ -8,16 +10,25 @@ import { BlocService } from '../../core/services/bloc/bloc.service';
   styleUrls: ['./add-bloc.component.css']
 })
 export class AddBlocComponent implements OnInit {
-  
-  foyers: any[] = [];
+  foyers : Foyer[] = [];
+  //foyers: any[] = [];
   selectedFoyerId: number | null = null;
   bloc = new Bloc();
   showAlert=false;
-  constructor(private blocService:BlocService){}
+  constructor(private blocService:BlocService, private foyerService:FoyerService){}
   
   ngOnInit() {
-
+    this.foyerService.getAllFoyer().subscribe(
+      (data: any) => {
+        this.foyers = data;
+      },
+      (error:any) => {
+        console.error('Une erreur s\'est produite :', error);
+      }
+    );
   }
+
+
 
   saveBloc() {
     // Vérifiez si un foyer a été sélectionné
