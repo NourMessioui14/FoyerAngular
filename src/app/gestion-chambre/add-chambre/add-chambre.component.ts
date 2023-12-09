@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Chambre} from "../../Modele/chambre";
 import {FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {ChambreService} from "../chambre.service";
+import {ChambreService} from "../../ServiceChambre/chambre.service";
 import {TypeChambre} from "../../Modele/type-chambre.enum";
 
 

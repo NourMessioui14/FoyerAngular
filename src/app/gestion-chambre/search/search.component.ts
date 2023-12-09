@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import {TypeChambre} from "../../Modele/type-chambre.enum";
-import {ChambreService} from "../chambre.service";
+import {ChambreService} from "../../ServiceChambre/chambre.service";
 import {Chambre} from "../../Modele/chambre";
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChambreService } from "../chambre.service";
+import { ChambreService } from "../../ServiceChambre/chambre.service";
 import { Chambre } from "../../Modele/chambre";
 import { ActivatedRoute } from "@angular/router";
 import {TypeChambre} from "../../Modele/type-chambre.enum";

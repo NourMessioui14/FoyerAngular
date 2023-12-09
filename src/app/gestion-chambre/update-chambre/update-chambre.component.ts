@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import {Chambre} from "../Modele/chambre";
-import {ChambreService} from "../Chambre/chambre.service";
+import {Chambre} from "../../Modele/chambre";
+import {ChambreService} from "../../ServiceChambre/chambre.service";
 
 
 @Component({

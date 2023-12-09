@@ -28,7 +28,7 @@
           <td>{{ chambre.typec }}</td>
           <td>
             <button (click)="deleteChambre(chambre.idChambre)" class="btn btn-danger">Supprimer</button>
-            <a [routerLink]="['/update', chambre.idChambre]" class="btn waves-effect waves-light btn-warning">Edit</a>
+            <a [routerLink]="['/chambres/update', chambre.idChambre]" class="btn waves-effect waves-light btn-warning">Edit</a>
           </td>
         </tr>
         </tbody>
@@ -37,7 +37,7 @@
 
     <!-- Add new room button below the table -->
     <div class="mt-3 text-right">
-      <a routerLink="/add" class="btn btn-md btn-outline-primary">
+      <a routerLink="/chambres/add" class="btn btn-md btn-outline-primary">
         <i class="fa fa-user"></i>Add new room
       </a>
     </div>
