@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EtudiantsService } from 'src/app/Core/Services/etudiants.service';
 import { ReservationService } from 'src/app/Core/Services/reservation.service';
 import { reservation } from 'src/app/Models/reservation';
 
@@ -10,10 +11,23 @@ import { reservation } from 'src/app/Models/reservation';
 export class ListReservComponent {
   reservations: any[] = []; // Initialise un tableau vide pour les réservations
 
-  constructor(private reservationService: ReservationService) { }
+  constructor(private reservationService: ReservationService,private EtudiantService:EtudiantsService) { }
 
   ngOnInit(): void {
     this.getReservations(); // Appelle la fonction pour récupérer les réservations au chargement du composant
+    this.getEtudiants();
+
+  }
+
+  getEtudiants() {
+    this.EtudiantService.getEtudiants().subscribe((data: any) => {
+      console.log('données récupérées :', data);
+  
+      this.etudiants = data.map((etudiant: any) => {
+        etudiant.dateNaissance = new Date(etudiant.dateNaissance);
+        return etudiant;
+      });
+    });
   }
 
   getReservations() {
@@ -44,7 +58,18 @@ export class ListReservComponent {
       }
     );
   }
+
+
+
+  etudiants:any[] = [];
+
+
+ 
+
   
+  
+  
+
   
 
 

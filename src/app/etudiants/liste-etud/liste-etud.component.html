@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+  
+            <h1 class="text-center mb-4">Liste des etudiants</h1>
+            <table class="table table-striped">
+                <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nom</th>
+          <th scope="col">CIN</th>
+          <th scope="col">École</th>
+          <th scope="col">Date de Naissance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let etudiant of etudiants">
+          <td>{{ etudiant.idEtudiant }}</td>
+          <td>{{ etudiant.nomEt }}</td>
+          <td>{{ etudiant.cin }}</td>
+          <td>{{ etudiant.ecole }}</td>
+          <td>{{ etudiant.dateNaissance | date: 'dd/MM/yyyy' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  <router-outlet></router-outlet>
+  
+  

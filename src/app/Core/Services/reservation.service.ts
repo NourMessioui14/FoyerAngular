@@ -8,6 +8,9 @@ import { reservation } from 'src/app/Models/reservation';
 })
 export class ReservationService {
   private URL="http://localhost:9090/reservation"
+  private URL2="http://localhost:9090/etudiant"
+  private URL3="http://localhost:9090/chambre"
+
 
 
   constructor(private http:HttpClient) { }
@@ -32,6 +35,30 @@ export class ReservationService {
     const URL = `${this.URL}/${id}`;
     return this.http.get<reservation>(URL);
   }
+
+  getEtudiants():Observable<any[]>{
+    return this.http.get<any[]>(this.URL2);
+  }
+
+
+  //chambre
+  getChambre(): Observable<any[]>{
+    return this.http.get<any[]>(this.URL3);}
+
+
+    //ajouter chambre
+    ajouterReservationS(idChambre: number, cinEtudiant: number) {
+      const body = {
+        idchambre: idChambre,
+        cinEtudiant: cinEtudiant
+      };
+      return this.http.post(this.URL + '/ajouterReservation', body);
+    }
+    
+  
+
+
+
 
 
 

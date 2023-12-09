@@ -6,14 +6,21 @@
                 <div class="mb-3">
                     <label for="id" class="form-label">Id reservation</label>
                     <input type="text" class="form-control" id="idReservation" name="idReservation" ngModel #idReservation="ngModel" required>
+                    <small class="text text-danger" *ngIf="idReservation?.errors?.['required'] && idReservation.touched">Id is required</small>
+                    <small class="text text-danger" *ngIf="idReservation?.errors?.['minlength'] && idReservation.touched">min length est 3</small>
+                    <small class="text text-danger" *ngIf="idReservation?.errors?.['pattern'] && idReservation.touched">name should be letters only</small>
                 </div>
                 <div class="mb-3">
                     <label for="anneeUniversitaire" class="form-label">Année universitaire</label>
                     <input type="date" class="form-control" id="anneeUniversitaire" name="anneeUniversitaire" ngModel #anneeUniversitaire="ngModel" required>
+                    <small class="text text-danger" *ngIf="anneeUniversitaire?.errors?.['required'] && anneeUniversitaire.touched">birth date is required</small>
+
                 </div>
                 <div class="form-check mb-3">
                     <input type="checkbox" class="form-check-input" id="estValide" name="estValide" ngModel #estValide="ngModel">
                     <label class="form-check-label" for="estValide">Est valide</label>
+                    <small class="text text-danger" *ngIf="estValide?.errors?.['required'] && estValide.touched">Cocher la case</small>
+
                 </div>
                 <button type="submit" class="btn btn-primary">Ajouter réservation</button>
             </form>

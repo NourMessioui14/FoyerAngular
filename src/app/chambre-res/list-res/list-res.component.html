@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <h1 class="text-center mb-4">Liste des Chambres</h1>
+      <a routerLink="/add">
+        <button class="btn btn-md btn-outline-primary">
+          <i class="fa fa-user"></i>Add new room
+        </button>
+      </a>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>numeroChambre</th>
+            <th>TypeChambre</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let chambre of listChambre">
+            <td>{{ chambre.idChambre }}</td>
+            <td>{{ chambre.numeroChambre }}</td>
+            <td>{{ chambre.typeChambre }}</td>
+            <td>
+              <button class="btn btn-primary" (click)="reserverChambre(chambre.idChambre, cinEtudiant)">
+                Réserver
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      </div>
+  </div>
+</div>

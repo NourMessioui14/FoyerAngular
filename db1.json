@@ -1,0 +1,49 @@
+{
+"users": [
+    {
+
+      "name": "nour",
+      "username": "messioui",
+      "email": "nourmessioui@gmail.com",
+      "password": "password",
+      "role": "ROLE_ADMIN"
+    },
+    {
+        "name": "ekhdem",
+        "username": "aad",
+        "email": "nour@gmail.com",
+        "password": "test",
+        "role": "ROLE_ADMIN"
+      },
+      {
+        "name": "pffff",
+        "username": "aad",
+        "email": "hello@gmail.com",
+        "password": "test",
+        "role": "ROLE_ADMIN"
+      },
+      {
+        "name": "nour",
+        "username": "messioui",
+        "email": "nourmessioui145@gmail.com",
+        "password": "1234",
+        "role": "ROLE_ADMIN"
+      },
+      {
+        "name": "noura",
+        "username": "messioui",
+        "email": "nourmessioui1456@gmail.com",
+        "password": "1234",
+        "role": "ROLE_ADMIN"
+      },
+      {
+        "name": "nour",
+        "username": "messioui",
+        "email": "nourmessioui1@gmail.com",
+        "password": "password",
+        "role": "ROLE_ADMIN"
+      }
+
+
+  ]
+}

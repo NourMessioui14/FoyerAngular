@@ -8,19 +8,24 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ReservationModule } from './reservation/reservation.module';
 import { FormsModule } from '@angular/forms';
+import { EtudiantsModule } from './etudiants/etudiants.module';
+import { ChambreResModule } from './chambre-res/chambre-res.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SidebarComponent,
+   
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    ReservationModule
+    ReservationModule,
+    EtudiantsModule,
+    ChambreResModule
     
   ],
   providers: [],
