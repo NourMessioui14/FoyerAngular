@@ -6,12 +6,13 @@
         <div class="card-body">
             <div class="form-group">
                 <label for="nomBloc">Nom du Bloc</label>
-                <input [(ngModel)]="bloc.nomBloc" id="nomBloc" class="form-control" type="text" name="">
+                <input [(ngModel)]="bloc.nomBloc" id="nomBloc" class="form-control" type="text" maxlength="5" name="" required>
             </div>
 
             <div class="form-group">
                 <label for="capacityBloc">capacité du Bloc</label>
-                <input [(ngModel)]="bloc.capacityBloc" id="capacityBloc" class="form-control" type="number" name="">
+                <input [(ngModel)]="bloc.capacityBloc" id="capacityBloc" class="form-control" type="number" name="" required
+                [max]="25" minlength="1">
             </div>
 
 

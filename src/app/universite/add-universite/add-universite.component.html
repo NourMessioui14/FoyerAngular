@@ -6,17 +6,18 @@
         <div class="card-body">
             <div class="form-group">
                 <label for="nomUniversite">Nom de l'université</label>
-                <input [(ngModel)]="universite.nomUniversite" id="nomUniversite" class="form-control" type="text" name="">
+                <input [(ngModel)]="universite.nomUniversite" id="nomUniversite" class="form-control" type="text" name="" required maxlength="15">
             </div>
 
             <div class="form-group">
                 <label for="adresse">adresses de l'université</label>
-                <input [(ngModel)]="universite.adresse" id="adresse" class="form-control" type="text" name="">
+                <input [(ngModel)]="universite.adresse" id="adresse" class="form-control" type="text" name="" required placeholder="num,rue, ville, code postal">
             </div>
 
             <div class="form-group">
                 <button class="btn btn-primary" (click)="saveUniversite()">Ajouter</button>
             </div>
+
 
         </div>
 

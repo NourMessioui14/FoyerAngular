@@ -9,13 +9,13 @@
         <div class="mb-3"> </div>
         
                 <label for="nomUniversite">Nom de l'université</label>
-                <input [(ngModel)]="universiteData.nomUniversite" #nomUniversite="ngModel" id="nomUniversite" class="form-control" type="text" name="nomUniversite">
+                <input [(ngModel)]="universiteData.nomUniversite" #nomUniversite="ngModel" id="nomUniversite" class="form-control" type="text" name="nomUniversite" required maxlength="15">
             
                 <small class="text text-danger" *ngIf="nomUniversite?.errors?.['required'] && nomUniversite.touched">Date required</small>
 
             
                 <label class="form-check-label" for="adresse">adresse</label>
-                <input [(ngModel)]="universiteData.adresse" #adresse="ngModel" id="adresse" class="form-control" type="data" name="adresse">
+                <input [(ngModel)]="universiteData.adresse" #adresse="ngModel" id="adresse" class="form-control" type="data" name="adresse" required placeholder="num,rue, ville, code postal">
             
 
             

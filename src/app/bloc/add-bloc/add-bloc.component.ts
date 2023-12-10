@@ -4,12 +4,14 @@ import { BlocService } from '../../core/services/bloc/bloc.service';
 import { Foyer } from 'src/app/ModelFoyer/foyer';
 import { FoyerService } from 'src/app/core/services/foyer.service';
 
+
 @Component({
   selector: 'app-add-bloc',
   templateUrl: './add-bloc.component.html',
   styleUrls: ['./add-bloc.component.css']
 })
 export class AddBlocComponent implements OnInit {
+  
   foyers : Foyer[] = [];
   //foyers: any[] = [];
   selectedFoyerId: number | null = null;
@@ -17,6 +19,9 @@ export class AddBlocComponent implements OnInit {
   showAlert=false;
   constructor(private blocService:BlocService, private foyerService:FoyerService){}
   
+
+
+
   ngOnInit() {
     this.foyerService.getAllFoyer().subscribe(
       (data: any) => {
@@ -63,4 +68,8 @@ export class AddBlocComponent implements OnInit {
     this.showAlert=false;
    }
 
+
 }
+
+
+

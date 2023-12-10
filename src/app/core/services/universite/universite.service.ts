@@ -12,6 +12,23 @@ export class UniversiteService {
 
   private url="http://localhost:9098/Universite"
 
+  getUniversitesWithFoyer(): Observable<Universite[]> {
+    return this.http.get<Universite[]>(`${this.url}/withFoyer`);
+  }
+
+
+  // Création d'un bloc avec référence au foyer
+  /*createBlocWithFoyer(bloc: Bloc, foyerId: number): Observable<Bloc> {
+    return this.http.post<Bloc>(`${this.baseUrl}/create-bloc-with-foyer/${foyerId}`, bloc);
+  }
+
+  // Mise à jour d'un bloc avec référence au foyer
+  updateBlocWithFoyer(bloc: Bloc, foyerId: number): Observable<Bloc> {
+    return this.http.put<Bloc>(`${this.baseUrl}/update-bloc-with-foyer/${foyerId}`, bloc);
+  }*/
+
+
+
   createUniversite(universite : Universite){
     return this.http.post<Universite>(this.url, universite);
   }

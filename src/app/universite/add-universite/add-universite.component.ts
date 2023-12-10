@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Universite } from '../../universite';
 import { UniversiteService } from '../../core/services/universite/universite.service';
+import { Foyer } from 'src/app/ModelFoyer/foyer';
+import { FoyerService } from 'src/app/core/services/foyer.service';
 
 @Component({
   selector: 'app-add-universite',
@@ -8,10 +10,19 @@ import { UniversiteService } from '../../core/services/universite/universite.ser
   styleUrls: ['./add-universite.component.css']
 })
 export class AddUniversiteComponent implements OnInit {
+
+  universite: Universite = new Universite();
   
-  universite = new Universite();
   showAlert=false;
+  
+  selectedFoyer: Foyer | undefined; // Garder le foyer sélectionné
+
+  //foyers : Foyer[] = [];
+  
   constructor(private universiteService:UniversiteService){}
+
+
+  
   
   ngOnInit() {
 

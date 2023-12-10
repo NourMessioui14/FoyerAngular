@@ -10,13 +10,14 @@
 
         
                 <label for="nomBloc">Nom du Bloc</label>
-                <input [(ngModel)]="blocData.nomBloc" #nomBloc="ngModel" id="nomBloc" class="form-control" type="text" name="nomBloc">
+                <input [(ngModel)]="blocData.nomBloc" #nomBloc="ngModel" id="nomBloc" class="form-control" type="text" name="nomBloc" maxlength="5" required>
             
                 <small class="text text-danger" *ngIf="nomBloc?.errors?.['required'] && nomBloc.touched">Date required</small>
 
             
                 <label class="form-check-label" for="capacityBloc">capacité du Bloc</label>
-                <input [(ngModel)]="blocData.capacityBloc" #capacityBloc="ngModel" id="capacityBloc" class="form-control" type="data" name="capacityBloc">
+                <input [(ngModel)]="blocData.capacityBloc" #capacityBloc="ngModel" id="capacityBloc" class="form-control" type="data" name="capacityBloc" required
+                [max]="25" minlength="1">
             
 
             
